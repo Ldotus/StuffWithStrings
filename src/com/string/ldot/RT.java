@@ -6,12 +6,8 @@ import java.util.Scanner;
 
 public class RT {
 
-	static int height;
-	static int width;
-	static int total;
 	static Scanner sc = new Scanner(System.in);
 	static boolean proceed = true;
-
 	private ArrayList<String> pwList = new ArrayList<String>();
 
 
@@ -25,7 +21,7 @@ public class RT {
 		String fName;
 		String lName;
 	
-
+		//while loop for Menu
 		while (proceed) {
 
 			{
@@ -59,9 +55,11 @@ public class RT {
 	}
 
 	private static void pwGen() {
-
+		//creates an array list of strings for the list of passwords
+		//currently doesn't save them to list 
+		//TODO: Implement password list being written to a document
 		int length;
-		ArrayList<String> pwList = new ArrayList<String>();
+	
 		System.out.println("---------------Welcome to password generator-------------");
 		System.out.println("how many characters do you want your password to be?");
 		length = sc.nextInt();
@@ -71,7 +69,9 @@ public class RT {
 	}
 	
 	
-	//TODO: get readBackwards working
+	//takes the inputted text and stores in a array of chars
+	//reads through the array of chars backwords, printing each one out.
+	//currently unable to use spaces as char is used
 	private static void readBackwards() {
 		System.out.println("---------------Read Backwards-------------");
 		System.out.println("Enter what you want to be read backwards");
@@ -82,14 +82,21 @@ public class RT {
 		
 		for (int i = ch.length-1; i >= 0; i--) {
 			ch[i] = input.charAt(i);
+			System.out.print(ch[i]);
+		
 			
 		
 		}
-		String str = ch.toString();
-		System.out.println(str);
+		System.out.println("");
+	
+		
 	}
 	
 	private static char[] password(int len) {
+		
+		//creates a dictionary of sorts in which all characters
+		//below can be used for password generating 
+		//uses a random object to randomly pick between values 
 
 		String Cap_Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String low_Chars = "abcdefghijklmnopqrstuvwxyz";
